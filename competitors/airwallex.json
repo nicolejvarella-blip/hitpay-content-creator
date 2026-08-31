@@ -1,0 +1,221 @@
+{
+  "id": "airwallex",
+  "name": "Airwallex",
+  "base_url": "https://www.airwallex.com",
+  "markets": [
+    "Global",
+    "Singapore",
+    "Malaysia",
+    "Philippines",
+    "Hong Kong",
+    "Australia"
+  ],
+  "last_updated": "2026-05-21",
+  "pricing": {
+    "monthly_fee": "Explore: Free, Grow: $79/month, Accelerate: From $399/month",
+    "setup_fee": null,
+    "transaction_fees": {
+      "cards": null,
+      "local_methods": null,
+      "notes": "Per transaction fees applied for FX, transfers, and payments processing. Per active spend user fees charged for cards and spend."
+    },
+    "pricing_model": "subscription"
+  },
+  "payment_methods": {
+    "singapore": [
+      "SGD",
+      "20+ currencies"
+    ],
+    "malaysia": [
+      "MYR"
+    ],
+    "philippines": [],
+    "global": [
+      "160+ local payment methods",
+      "Online card and local payment method acceptance globally",
+      "cards",
+      "bank transfers",
+      "wallets",
+      "buy now, pay later options",
+      "20+ currencies",
+      "160 local payment methods"
+    ]
+  },
+  "features": [
+    "Business Accounts",
+    "Global Accounts",
+    "FX & Transfers",
+    "Corporate Cards",
+    "Multi-currency corporate cards",
+    "Expense Management",
+    "Bill Pay",
+    "Checkout",
+    "Payment Links",
+    "Payment Plugins",
+    "Invoicing",
+    "Subscription Management",
+    "Usage-Based Billing",
+    "Connected Accounts",
+    "Programmatic account creation",
+    "Business onboarding",
+    "Global multi-currency payment",
+    "Global Accounts with multi-currency support",
+    "FX & Transfers to 200+ countries",
+    "Corporate Cards (multi-currency)",
+    "Checkout solution",
+    "Connected Accounts API",
+    "Payments API",
+    "Open multiple business accounts per entity",
+    "Collect and hold in 20+ currencies",
+    "Free batch transfers to 120+ countries",
+    "Access to interbank FX rates",
+    "Yield on USD and SGD",
+    "Multi-currency company and employee cards with zero international fees",
+    "Spend requests, expense management, and reimbursements",
+    "Domestic and international bill pay",
+    "Online card and local payment method acceptance globally",
+    "Customisable, multi-conditional approvals",
+    "Rules-based automation for bills",
+    "Approval workflows for vendors",
+    "Remittance advice for bills",
+    "Purchase orders and requests",
+    "Advanced rules-based automation for expenses",
+    "Central management of finances across global entities",
+    "Single sign-on",
+    "Unlimited company cards",
+    "Dedicated account manager",
+    "Onboarding support",
+    "Support 130+ currencies",
+    "Support 160+ local payment methods",
+    "Like-for-like settlement without FX fees",
+    "Multi-currency Business Account",
+    "Global transfers",
+    "Corporate cards",
+    "Spend management tools",
+    "Multi-currency collection accounts with local bank details in 20+ currencies",
+    "Pay suppliers in 200+ countries",
+    "FX conversion at interbank rates",
+    "Localized checkout experience",
+    "Display prices in local currency at checkout",
+    "Payment acceptance",
+    "Card issuing",
+    "Accounts",
+    "Global Treasury",
+    "Banking as a Service",
+    "Payments for Platforms",
+    "Fund collection, storage, conversion, and disbursement",
+    "Developer tools and APIs",
+    "Pre-built components",
+    "Connected accounts onboarding",
+    "Automated fee collection",
+    "AML and KYC compliance management",
+    "Interbank rates"
+  ],
+  "target_segment": [
+    "global businesses",
+    "platform",
+    "marketplace",
+    "developer",
+    "enterprise",
+    "SME",
+    "merchants",
+    "direct sellers",
+    "marketplace sellers",
+    "marketplace operators",
+    "aggregators",
+    "SaaS"
+  ],
+  "integrations": [
+    "QuickBooks",
+    "Xero",
+    "NetSuite",
+    "Shopify",
+    "WooCommerce",
+    "Magento",
+    "HRIS platform integrations",
+    "Netsuite",
+    "APIs",
+    "Developer libraries"
+  ],
+  "compliance": [
+    "AML",
+    "KYC"
+  ],
+  "unique_selling_points": [
+    "AI-native financial infrastructure",
+    "Manage payments, treasury, and spend",
+    "Interbank rates for global transfers",
+    "Instant SGD multi-currency corporate cards",
+    "Low-code checkout solution",
+    "No coding required payment links",
+    "Multi-currency corporate cards issued instantly",
+    "Single account in Singapore to manage global payments",
+    "Free batch transfers to 120+ countries",
+    "Access to interbank FX rates",
+    "Yield on USD and SGD funds",
+    "Multi-currency company and employee cards with zero international fees",
+    "Eliminate costly FX fees with like-for-like settlement",
+    "Manage all financial operations on one platform",
+    "Support 160+ local payment methods",
+    "Pay suppliers in 200+ countries",
+    "Unified layer of licences and registrations",
+    "Pre-built flows and customizable UI",
+    "Global financial infrastructure",
+    "Hassle-free onboarding via single integration",
+    "Comprehensive APIs for complex use cases",
+    "Single account to manage global payments and finances",
+    "Open local currency accounts in 20+ currencies",
+    "Make global transfers to 200+ countries at interbank rates"
+  ],
+  "positioning": "The intelligent financial platform for global businesses to manage payments, treasury, and spend with AI-native financial infrastructure and software.",
+  "payout_speed": null,
+  "markets_served": [
+    "Global",
+    "Singapore",
+    "Malaysia",
+    "Philippines",
+    "Hong Kong",
+    "Australia",
+    "Canada",
+    "China",
+    "Europe",
+    "France",
+    "Germany",
+    "Hong Kong SAR",
+    "Israel",
+    "Japan",
+    "Netherlands",
+    "New Zealand",
+    "South Korea",
+    "United Kingdom",
+    "United States",
+    "Vietnam",
+    "200+ countries"
+  ],
+  "sources": [
+    {
+      "url": "https://www.airwallex.com",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.airwallex.com/sg",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.airwallex.com/sg/pricing",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.airwallex.com/sg/solutions/ecommerce",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.airwallex.com/sg/solutions/saas",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.airwallex.com/my",
+      "scraped_at": "2026-05-21"
+    }
+  ]
+}

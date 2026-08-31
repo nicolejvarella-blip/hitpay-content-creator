@@ -127,8 +127,8 @@ class OpenRouterClient:
             api_key=api_key or OPENROUTER_API_KEY,
             timeout=timeout,
             default_headers={
-                "HTTP-Referer": "https://hitpay-content-creator.vercel.app",
-                "X-Title": "HitPay Content Creator",
+                "HTTP-Referer": "https://github.com/nicolejvarella-blip/hitpay-content-creator",
+                "X-Title": "Content Creator",
             },
         )
         self.messages = _Messages(self._client)

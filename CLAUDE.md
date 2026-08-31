@@ -1,61 +1,65 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with code in this repository.
 
 ## Commands
 
 ```bash
-# CLI (main entry point)
-python main.py generate "keyword"        # generate a blog post
-python main.py list --status writing     # list posts by status
-python main.py export --all              # export all posts to Markdown/CSV
-python main.py factcheck POST_ID         # AI fact-check a post
-python main.py research                  # analyze competitor content
-
-# Web server
-python api.py                            # FastAPI server (Google OAuth + REST API)
+python main.py init-brand SLUG --name "Display Name"   # scaffold brands/SLUG/
+python main.py generate "keyword" --brand SLUG          # generate a blog post
+python main.py rewrite URL --brand SLUG                 # rewrite an existing post
+python main.py list --brand SLUG --status writing        # list posts
+python main.py export --all                              # export for Framer CMS
 ```
 
 ## Architecture
 
-**Dual interface**: Click CLI (`main.py` → `src/cli.py`) and FastAPI web server (`api.py`) share the same core logic.
+CLI only (Click, `main.py` → `src/cli.py`). No web server, no OAuth, no
+hosted database — this was descoped from the original HitPay-specific
+version to run entirely locally.
 
 **Generation pipeline** (`src/generator.py`):
-1. Loads HitPay product knowledge from `hitpay_docs.md`
-2. Queries live HitPay MCP server (`HITPAY_MCP_URL`) for knowledge/changelog/news
-3. Pulls competitor insights from `src/competitor_db.py`
-4. Selects market-specific external links (`external_links_db.json`, keyed by SG/MY/PH/SEA)
-5. Calls Claude Sonnet via OpenRouter (`src/llm_client.py`) with streaming + exponential backoff retry
-6. Returns structured dict: title, slug, meta_title, meta_description, content, categories, tags
+1. Loads the target brand's profile (`src/brand_config.py` reads
+   `brands/<slug>/profile.yaml`) — voice, target audience, USPs, competitors,
+   markets
+2. Pulls keyword-relevant sections from `brands/<slug>/docs.md`
+3. Optionally pulls internal backlinks from `brands/<slug>/links.yaml`
+4. Builds one generic AEO/SEO system prompt (`_build_system_prompt`) —
+   Quick Answer block, question-phrased H2/H3, FAQ, schema block — driven
+   entirely by the brand profile fields, not hardcoded brand facts
+5. Calls Claude via OpenRouter (`src/llm_client.py` — shaped like the
+   Anthropic Messages API so call sites read like they're calling Anthropic
+   directly) with streaming + exponential backoff retry
+6. Returns a structured dict: title, slug, meta_title, meta_description,
+   content, categories, tags
 
-**Post lifecycle**: `writing` → `ready_to_publish` → `published` (file-based in `posts/{status}/`, also tracked in Supabase via `src/database.py`)
+**Post lifecycle**: `writing` → `ready_to_publish` → `published` — file-based
+in `posts/{status}/`, tracked in local SQLite (`src/database.py`, one
+`content.db` file, `brand` column separates brands).
 
 **Key modules**:
-- `src/generator.py` — main generation logic + Claude API call
-- `src/llm_client.py` — OpenRouter client shaped like the Anthropic Messages API (system=, messages=, .content[0].text, .stop_reason, .usage) so call sites didn't need to change when the app moved off calling Anthropic directly
-- `src/mcp_client.py` — HitPay knowledge MCP integration
-- `src/competitor_db.py` — external link library by market
-- `src/fact_checker.py` — AI fact validation
-- `src/repurposer.py` — social/email variants from posts
-- `config.py` — all env vars and constants
+- `src/generator.py` — prompt construction + Claude API call
+- `src/brand_config.py` — loads/scaffolds brand profiles from `brands/`
+- `src/llm_client.py` — OpenRouter client shaped like the Anthropic SDK
+- `src/database.py` — SQLite post tracking
+- `src/post_writer.py` — markdown file I/O + Framer CMS CSV export/import
+- `config.py` — env vars and paths
 
-## Key Config (`config.py`)
+## Multi-brand
 
-| Var | Purpose |
-|---|---|
-| `OPENROUTER_API_KEY` | OpenRouter API key — all Claude calls are routed through OpenRouter's OpenAI-compatible endpoint, not Anthropic directly |
-| `HITPAY_MCP_URL` | HitPay knowledge MCP server |
-| `DATABASE_URL` | Supabase PostgreSQL (pg8000) |
-| `GOOGLE_CLIENT_ID/SECRET` | OAuth for web UI |
+Every brand is a folder under `brands/<slug>/` with `profile.yaml` (voice,
+audience, USPs, avoid-list, competitors, markets) and `docs.md` (freeform
+facts, split into `## Headings` — the generator keyword-matches sections
+into the prompt). `python main.py init-brand <slug>` scaffolds both files.
+There is no hardcoded brand anywhere in the generation code — everything
+brand-specific lives under `brands/`.
 
-`POSTS_DIR` auto-detects: Railway (`/data/posts`) → Vercel (`/tmp/posts`) → local (`posts/`)
+## What was removed from the original HitPay version
 
-## Deployment
-
-This project deploys to Vercel **exclusively via the GitHub integration** — pushing to `main` on GitHub auto-deploys to production. Do NOT run `vercel --prod` or `vercel deploy` manually: those commands deploy whatever is in the local working directory, bypassing git entirely, and can silently overwrite production with a stale local checkout (this has happened before — a stale local `main` wiped out the Reddit/Instagram features from prod until it was caught and fixed by re-pulling and pushing through git).
-
-Before making changes or deploying, always check local is caught up: `git fetch && git log HEAD..origin/main --oneline` should be empty. If it isn't, pull/fast-forward first and re-check for new call sites or files that any pending local work needs to account for.
-
-## Markets
-
-Posts target SG, MY, or PH. Market determines payment method copy, rates, and external link selection. Verified facts per market are in `hitpay_docs.md` and the memory system (`~/.claude/projects/.../memory/`).
+This started as a fork of a HitPay-internal tool. Removed: the FastAPI web
+UI + Google OAuth (`api.py`, `static/`), Supabase/Postgres, GA4 analytics,
+the HitPay knowledge MCP integration, live competitor/blog scraping infra,
+and social-repurposing to X/Threads/LinkedIn/Reddit/YouTube. All of that was
+tightly coupled to HitPay's own infrastructure and payment-industry content;
+none of it is brand-agnostic. If a future need justifies rebuilding any of
+it generically, treat it as new work rather than resurrecting the old code.

@@ -3,7 +3,7 @@
 .env.local
 
 # Database & generated content
-posts.db
+content.db
 posts/
 
 # Python
@@ -15,8 +15,3 @@ venv/
 
 # macOS
 .DS_Store
-
-# Exports
-posts/exports/
-.vercel
-.env*

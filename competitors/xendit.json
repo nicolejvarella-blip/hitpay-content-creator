@@ -1,0 +1,138 @@
+{
+  "id": "xendit",
+  "name": "Xendit",
+  "base_url": "https://www.xendit.co",
+  "markets": [
+    "Philippines",
+    "Indonesia",
+    "Malaysia",
+    "Thailand",
+    "Vietnam"
+  ],
+  "last_updated": "2026-05-21",
+  "pricing": {},
+  "payment_methods": {
+    "singapore": [],
+    "malaysia": [],
+    "philippines": [
+      "7-Eleven",
+      "ECPAY",
+      "Cebuana"
+    ],
+    "global": [
+      "QR Codes",
+      "E-wallets",
+      "Virtual Accounts (Bank Transfers)",
+      "Direct Debit",
+      "Cards",
+      "Retail Outlets / Over-the-counter",
+      "PayLater",
+      "e-wallets",
+      "credit cards",
+      "direct debit",
+      "bank cards",
+      "QRIS",
+      "150+ online payment methods"
+    ],
+    "regional": [
+      "Alfamart",
+      "Indomart"
+    ]
+  },
+  "features": [
+    "Payment links creation",
+    "QR code generation",
+    "No-code payment links",
+    "Customizable checkout pages",
+    "Automated payment reminders",
+    "Instant payment recognition",
+    "Branded payment pages",
+    "Logo and color customization",
+    "Personalized messages",
+    "Real-time notifications",
+    "Dashboard payment link creation",
+    "API for automated payment link creation",
+    "Messaging app integration (WhatsApp, Viber)",
+    "Tokenization for recurring payments",
+    "Refund automation",
+    "Settlement automation",
+    "Reconciliation tools",
+    "In-house fraud detection system",
+    "Recurring/subscription billing",
+    "Payment links",
+    "QR code payments",
+    "SMS/email/social sharing of payment links",
+    "Offline payment collection",
+    "Business management (account opening, transaction representation, flow monitoring, direct charging)",
+    "Custom billing schedules (anchor dates, billing intervals, retry rules)",
+    "Customer notifications",
+    "Multiple payment method binding (up to 5 methods per customer)",
+    "Smart retry logic",
+    "Built-in retry for declined transactions"
+  ],
+  "target_segment": [
+    "subscription businesses",
+    "platform"
+  ],
+  "integrations": [],
+  "compliance": [
+    "PCI DSS"
+  ],
+  "unique_selling_points": [
+    "Improved credit card acceptance rates by 198% for a global wellness platform",
+    "99.999% Uptime",
+    "Payment Reliability",
+    "100+ payment methods",
+    "Up to 30% increased card acceptance rates",
+    "12,000+ convenience store network",
+    "Automated notifications for payment reminders",
+    "Future-proof checkout with localized instructions and best practices",
+    "Pre-built UI or custom checkout design",
+    "First in Southeast Asia to enable true recurring billing across e-wallets, direct debit, and bank cards",
+    "Single integration for 150+ online payment methods",
+    "Maximizes payment success rate",
+    "Converts one-time buyers to long-term users",
+    "Achieved 5× Transaction Growth for Gelora",
+    "143% Business Expansion for Gelora"
+  ],
+  "positioning": "A payment platform that helps businesses improve payment acceptance rates.",
+  "payout_speed": null,
+  "markets_served": [
+    "Philippines",
+    "Indonesia",
+    "Malaysia",
+    "Thailand",
+    "Vietnam",
+    "Southeast Asia"
+  ],
+  "sources": [
+    {
+      "url": "https://www.xendit.co",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-ph/",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-ph/pricing/",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-ph/products/payment-links/",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-ph/products/recurring/",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-id/",
+      "scraped_at": "2026-05-21"
+    },
+    {
+      "url": "https://www.xendit.co/en-my/",
+      "scraped_at": "2026-05-21"
+    }
+  ]
+}
